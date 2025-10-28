@@ -1,0 +1,34 @@
+# Streamlit Configuration for Mirante - Code Agent
+
+[theme]
+# Primary color - Mirante green
+primaryColor = "#3EA216"
+
+# Background color - Light mode
+backgroundColor = "#FFFFFF"
+
+# Secondary background color - For sidebar and widgets
+secondaryBackgroundColor = "#F0F2F6"
+
+# Text color
+textColor = "#262730"
+
+# Font - Use default or specify custom font
+font = "sans serif"
+
+[server]
+# Enable file watcher for development
+fileWatcherType = "auto"
+
+# Max upload size (MB)
+maxUploadSize = 200
+
+# Enable CORS support
+enableCORS = true
+
+# Enable XSS protection
+enableXsrfProtection = true
+
+[browser]
+# Automatically open browser on start
+gatherUsageStats = false

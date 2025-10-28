@@ -1,0 +1,60 @@
+services:
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mirante-pg
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_DB: codeAgent
+      POSTGRES_USER: mirante
+      POSTGRES_PASSWORD: mirante2025pass
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db-init.sh:/docker-entrypoint-initdb.d/db-init.sh
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mirante -d codeAgent"]
+      start_period: 30s
+      timeout: 5s
+      retries: 5
+      interval: 60s
+    networks:
+      - mirante-network
+
+  cache:
+    image: redis/redis-stack:latest
+    container_name: mirante-redis
+    restart: unless-stopped
+    ports:
+      - "6382:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      start_period: 30s
+      timeout: 5s
+      retries: 5
+      interval: 60s
+    networks:
+      - mirante-network
+
+  migrations:
+    image: flyway/flyway:latest
+    container_name: mirante-flyway
+    depends_on:
+      db:
+        condition: service_healthy
+    command: -configFiles=/flyway/conf/flyway.conf migrate
+    volumes:
+      - ./flyway/migrations:/flyway/sql
+      - ./flyway/flyway-local.conf:/flyway/conf/flyway.conf
+    networks:
+      - mirante-network
+
+
+volumes:
+  postgres_data:
+
+networks:
+  mirante-network:
+    driver: bridge
