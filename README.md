@@ -11,6 +11,16 @@ Agent module that provides code optimization suggestions based on Python best pr
 
 > If you don't have uv installed yet we suggest you doing so by following the official one-line install [guide](https://docs.astral.sh/uv/getting-started/installation)... (this docs consider you have uv installed)
 
+Windows:
+```bash
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+Linux & macOS:
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
 Install dependencies:
 ```bash
 uv sync
