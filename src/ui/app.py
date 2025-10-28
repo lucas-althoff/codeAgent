@@ -209,24 +209,11 @@ result = calculate_sum([1, 2, 3, 4, 5])""",
         if code_input != st.session_state.current_code:
             st.session_state.current_code = code_input
 
-        col_btn1, col_btn2 = st.columns([1, 1])
-
-        with col_btn1:
-            analyze_button = st.button(
-                "🔍 Analyze Code",
-                type="primary",
-                use_container_width=True,
-            )
-
-        with col_btn2:
-            clear_button = st.button(
-                "🗑️ Clear",
-                use_container_width=True,
-            )
-
-        if clear_button:
-            st.session_state.current_code = ""
-            st.rerun()
+        analyze_button = st.button(
+            "🔍 Analyze Code",
+            type="primary",
+            use_container_width=True,
+        )
 
     with col2:
         st.header("📊 Analysis Results")

@@ -3,6 +3,10 @@
 ## Description  
 Agent module that provides code optimization suggestions based on Python best practices using crewAI. 
 
+![UI](https://github.com/lucas-althoff/codeAgent/blob/main/src/static/images/ui.png)
+
+---
+
 ## Installing and running
 
 > If you don't have uv installed yet we suggest you doing so by following the official one-line install [guide](https://docs.astral.sh/uv/getting-started/installation)... (this docs consider you have uv installed)
@@ -32,6 +36,8 @@ python -m streamlit run src/ui/app.py
 
 ## Components:
 
+![Architecture](https://github.com/lucas-althoff/codeAgent/blob/main/src/static/images/architecture.png)
+
   1. **FastAPI Entrypoint**
 
   - Complete FastAPI application with CORS middleware
@@ -44,6 +50,8 @@ python -m streamlit run src/ui/app.py
    1. Performance analyser: Must suggest code changes based on performance improvements reasons and best practices 
    2. Code Quality analyser: Must suggest code changes based on code quality, clean code, SOLID principles, and best practices
    3. Report writer: Must consolidate the answers coming from the analyser into a single user friendly answer respecting markdown formatting
+
+![Crew Architecture](https://github.com/lucas-althoff/codeAgent/blob/main/src/static/images/crew_architecture.png)
 
 3. **Postgres DB:**
 - Postgres instance with vector engine if we want to add semantic search in the future
@@ -91,13 +99,13 @@ python -m streamlit run src/ui/app.py
 
 ### Key Features
 
-  ✅ Modular Design: Agents, tools, and tasks are separate and maintainable
-  ✅ Comprehensive Prompts: Each agent has detailed instructions and backstory
-  ✅ Multiple Analysis Angles: Performance + Quality + Consolidated Report
-  ✅ Tool Integration: Custom tools for AST analysis, metrics, and best practices
-  ✅ Error Handling: Graceful degradation with user-friendly error messages
-  ✅ Database Integration: All analyses saved for history tracking
-  ✅ Production Ready: CORS, logging, health checks, proper async handling
+  - ✅ Modular Design: Agents, tools, and tasks are separate and maintainable
+  - ✅ Comprehensive Prompts: Each agent has detailed instructions and backstory
+  - ✅ Multiple Analysis Angles: Performance + Quality + Consolidated Report
+  - ✅ Tool Integration: Custom tools for AST analysis, metrics, and best practices#
+  - ✅ Error Handling: Graceful degradation with user-friendly error messages
+  - ✅ Database Integration: All analyses saved for history tracking
+  - ✅ Production Ready: CORS, logging, health checks, proper async handling
 
 ## Next Steps (Scalability Improvements)
 

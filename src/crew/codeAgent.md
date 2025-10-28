@@ -8,6 +8,8 @@
   - Code Metrics Tool: Calculates LOC, cyclomatic complexity, comment ratios, and quality indicators
   - Best Practices Checker Tool: Validates PEP 8, SOLID principles, naming conventions, and anti-patterns
 
+![Crew Architecture](https://github.com/lucas-althoff/codeAgent/blob/main/src/static/images/crew_architecture.png)
+
 ## Agents Module
 
   Three specialized agents with detailed backstories and goals:
