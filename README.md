@@ -36,7 +36,7 @@ python -m streamlit run src/ui/app.py
 
 ## Components:
 
-![Architecture](https://github.com/lucas-althoff/codeAgent/blob/main/src/static/images/architecture.png)
+![Architecture](https://github.com/lucas-althoff/codeAgent/blob/main/src/static/images/app_architecture.png)
 
   1. **FastAPI Entrypoint**
 
