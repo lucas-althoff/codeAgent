@@ -23,20 +23,20 @@ services:
     networks:
       - mirante-network
 
-  cache:
-    image: redis/redis-stack:latest
-    container_name: mirante-redis
-    restart: unless-stopped
-    ports:
-      - "6382:6379"
-    healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
-      start_period: 30s
-      timeout: 5s
-      retries: 5
-      interval: 60s
-    networks:
-      - mirante-network
+  # cache:
+  #   image: redis/redis-stack:latest
+  #   container_name: mirante-redis
+  #   restart: unless-stopped
+  #   ports:
+  #     - "6382:6379"
+  #   healthcheck:
+  #     test: ["CMD", "redis-cli", "ping"]
+  #     start_period: 30s
+  #     timeout: 5s
+  #     retries: 5
+  #     interval: 60s
+  #   networks:
+  #     - mirante-network
 
   migrations:
     image: flyway/flyway:latest

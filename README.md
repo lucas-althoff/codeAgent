@@ -26,8 +26,15 @@ Install dependencies:
 uv sync
 ```
 
+Spinup the Database:
+```bash
+cd deploy-db
+docker-compose up -d
+```
+
 Run Backend (with auto-reload):
 ```bash
+# From the project root
 uv run uvicorn src.app:app --reload
 ```
 
